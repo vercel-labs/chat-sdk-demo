@@ -11,8 +11,12 @@
   "dependencies": {
     "@ai-sdk/openai": "^3.0.41",
     "@auth/unstorage-adapter": "^2.11.1",
+    "@chat-adapter/discord": "^4.19.0",
+    "@chat-adapter/gchat": "^4.19.0",
     "@chat-adapter/slack": "^4.19.0",
     "@chat-adapter/state-redis": "^4.19.0",
+    "@chat-adapter/teams": "^4.19.0",
+    "@chat-adapter/telegram": "^4.19.0",
     "@github-tools/sdk": "^1.2.0",
     "ai": "^6.0.116",
     "chat": "^4.19.0",
