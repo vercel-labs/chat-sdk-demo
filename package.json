@@ -9,9 +9,20 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@ai-sdk/openai": "^3.0.41",
+    "@auth/unstorage-adapter": "^2.11.1",
+    "@chat-adapter/slack": "^4.19.0",
+    "@chat-adapter/state-redis": "^4.19.0",
+    "@github-tools/sdk": "^1.2.0",
+    "ai": "^6.0.116",
+    "chat": "^4.19.0",
+    "ioredis": "^5.10.0",
     "next": "16.1.6",
+    "next-auth": "5.0.0-beta.30",
     "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "react-dom": "19.2.3",
+    "unstorage": "^1.17.4",
+    "zod": "^4.3.6"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
