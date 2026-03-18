@@ -28,3 +28,7 @@ bot.onNewMention(async (thread) => {
     </Card>,
   );
 });
+
+bot.onAction("continue", async (event) => {
+  await event.thread?.post(`${event.user.fullName} clicked continue`);
+});
