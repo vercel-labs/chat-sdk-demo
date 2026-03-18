@@ -16,25 +16,17 @@ export const bot = new Chat({
 });
 
 bot.onNewMention(async (thread, message) => {
-  await thread.subscribe();
-  await thread.startTyping();
-  const userMessage = {
-    role: "user" as const,
-    content: message.text,
-  };
-  const result = await agent.stream({ messages: [userMessage] });
-  await thread.post(result.fullStream);
-});
-
-bot.onSubscribedMessage(async (thread) => {
-  await thread.startTyping();
-  const messages: ModelMessage[] = [];
-  for await (const msg of thread.allMessages) {
-    messages.push({
-      role: msg.author.isBot ? ("assistant" as const) : ("user" as const),
-      content: msg.text,
-    });
-  }
-  const result = await agent.stream({ messages });
-  await thread.post(result.fullStream);
+  await thread.post(
+    <Card>
+      <CardText>Hello, world!</CardText>
+      <Actions>
+        <Button id="continue" style="primary">
+          Continue
+        </Button>
+        <Button id="cancel" style="danger">
+          Cancel
+        </Button>
+      </Actions>
+    </Card>
+  );
 });
