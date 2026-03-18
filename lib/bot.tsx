@@ -3,8 +3,6 @@ import { Actions, Button, Card, CardText, Chat } from "chat";
 import { createSlackAdapter } from "@chat-adapter/slack";
 import { createDiscordAdapter } from "@chat-adapter/discord";
 import { createRedisState } from "@chat-adapter/state-redis";
-import { agent } from "./agent";
-import { ModelMessage } from "ai";
 
 export const bot = new Chat({
   userName: "mybot",
@@ -15,8 +13,7 @@ export const bot = new Chat({
   state: createRedisState(),
 });
 
-bot.onNewMention(async (thread, message) => {
-  console.log('we out here');
+bot.onNewMention(async (thread) => {
   await thread.post(
     <Card>
       <CardText>Hello, world!</CardText>
@@ -28,6 +25,6 @@ bot.onNewMention(async (thread, message) => {
           Cancel
         </Button>
       </Actions>
-    </Card>
+    </Card>,
   );
 });
