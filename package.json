@@ -13,6 +13,7 @@
     "@auth/unstorage-adapter": "^2.11.1",
     "@chat-adapter/discord": "^4.20.2",
     "@chat-adapter/gchat": "^4.20.2",
+    "@chat-adapter/github": "^4.20.2",
     "@chat-adapter/slack": "^4.20.2",
     "@chat-adapter/state-redis": "^4.20.2",
     "@chat-adapter/teams": "^4.20.2",

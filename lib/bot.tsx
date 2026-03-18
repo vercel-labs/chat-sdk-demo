@@ -1,34 +1,29 @@
 /** @jsxImportSource chat */
-import { Actions, Button, Card, CardText, Chat } from "chat";
+import { Chat } from "chat";
 import { createSlackAdapter } from "@chat-adapter/slack";
 import { createDiscordAdapter } from "@chat-adapter/discord";
 import { createRedisState } from "@chat-adapter/state-redis";
+import { agent } from "./agent";
+import { createGitHubAdapter } from "@chat-adapter/github";
 
 export const bot = new Chat({
-  userName: "mybot",
+  userName: "Chat SDK Bot",
   adapters: {
     slack: createSlackAdapter(),
     discord: createDiscordAdapter(),
+    github: createGitHubAdapter(),
   },
   state: createRedisState(),
 });
 
-bot.onNewMention(async (thread) => {
-  await thread.post(
-    <Card>
-      <CardText>Hello, world!</CardText>
-      <Actions>
-        <Button id="continue" style="primary">
-          Continue
-        </Button>
-        <Button id="cancel" style="danger">
-          Cancel
-        </Button>
-      </Actions>
-    </Card>,
-  );
+bot.onNewMention(async (thread, message) => {
+  await thread.startTyping();
+  const result = await agent.stream({ prompt: message.text });
+  await thread.post(result.fullStream);
 });
 
-bot.onAction("continue", async (event) => {
-  await event.thread?.post(`${event.user.fullName} clicked continue`);
+bot.onDirectMessage(async (thread, message) => {
+  await thread.startTyping();
+  const result = await agent.stream({ prompt: message.text });
+  await thread.post(result.fullStream);
 });

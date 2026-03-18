@@ -20,6 +20,9 @@ importers:
       '@chat-adapter/gchat':
         specifier: ^4.20.2
         version: 4.20.2
+      '@chat-adapter/github':
+        specifier: ^4.20.2
+        version: 4.20.2
       '@chat-adapter/slack':
         specifier: ^4.20.2
         version: 4.20.2
@@ -280,6 +283,9 @@ packages:
 
   '@chat-adapter/gchat@4.20.2':
     resolution: {integrity: sha512-4Bsj1B61yrOJprkNsm3ewXTFsYYC0cmvoWwvffFu1V2QmoJ2VMeNO1FFtDEXlmBIFf7Mibyon/KmOuhMHlQjjA==}
+
+  '@chat-adapter/github@4.20.2':
+    resolution: {integrity: sha512-CGC8cyVKPdlIB9Q9EhPnh4cOrvus7N+m7skwSfUakVvji/gs+TzFKGP/TX3CZD3wCzXEWjAw/zbK4iaiNNUdtQ==}
 
   '@chat-adapter/shared@4.20.2':
     resolution: {integrity: sha512-cTtTVHgH/2l9/+ILSExCr/kZwzz2Y8tp7WKRweMRWFOBcXZ0U5ZtviZCCDWBqU/YOBilQUgON8vIP9eo1w0m5w==}
@@ -720,6 +726,12 @@ packages:
     peerDependencies:
       '@octokit/core': '>=6'
 
+  '@octokit/plugin-request-log@6.0.0':
+    resolution: {integrity: sha512-UkOzeEN3W91/eBq9sPZNQ7sUBvYCqYbrrD8gTbBuGtHEuycE4/awMXcYvx6sVYo7LypPhmQwwpUe4Yyu4QZN5Q==}
+    engines: {node: '>= 20'}
+    peerDependencies:
+      '@octokit/core': '>=6'
+
   '@octokit/plugin-rest-endpoint-methods@17.0.0':
     resolution: {integrity: sha512-B5yCyIlOJFPqUUeiD0cnBJwWJO8lkJs5d8+ze9QDP6SvfiXSz1BF+91+0MeI1d2yxgOhU/O+CvtiZ9jSkHhFAw==}
     engines: {node: '>= 20'}
@@ -744,6 +756,10 @@ packages:
 
   '@octokit/request@10.0.8':
     resolution: {integrity: sha512-SJZNwY9pur9Agf7l87ywFi14W+Hd9Jg6Ifivsd33+/bGUQIjNujdFiXII2/qSlN2ybqUHfp5xpekMEjIBTjlSw==}
+    engines: {node: '>= 20'}
+
+  '@octokit/rest@22.0.1':
+    resolution: {integrity: sha512-Jzbhzl3CEexhnivb1iQ0KJ7s5vvjMWcmRtq5aUsKmKDrRW6z3r84ngmiFKFvpZjpiU/9/S6ITPFRpn5s/3uQJw==}
     engines: {node: '>= 20'}
 
   '@octokit/types@16.0.0':
@@ -3480,6 +3496,15 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
+  '@chat-adapter/github@4.20.2':
+    dependencies:
+      '@chat-adapter/shared': 4.20.2
+      '@octokit/auth-app': 8.2.0
+      '@octokit/rest': 22.0.1
+      chat: 4.20.2
+    transitivePeerDependencies:
+      - supports-color
+
   '@chat-adapter/shared@4.20.2':
     dependencies:
       chat: 4.20.2
@@ -3938,6 +3963,10 @@ snapshots:
       '@octokit/core': 7.0.6
       '@octokit/types': 16.0.0
 
+  '@octokit/plugin-request-log@6.0.0(@octokit/core@7.0.6)':
+    dependencies:
+      '@octokit/core': 7.0.6
+
   '@octokit/plugin-rest-endpoint-methods@17.0.0(@octokit/core@7.0.6)':
     dependencies:
       '@octokit/core': 7.0.6
@@ -3968,6 +3997,13 @@ snapshots:
       fast-content-type-parse: 3.0.0
       json-with-bigint: 3.5.7
       universal-user-agent: 7.0.3
+
+  '@octokit/rest@22.0.1':
+    dependencies:
+      '@octokit/core': 7.0.6
+      '@octokit/plugin-paginate-rest': 14.0.0(@octokit/core@7.0.6)
+      '@octokit/plugin-request-log': 6.0.0(@octokit/core@7.0.6)
+      '@octokit/plugin-rest-endpoint-methods': 17.0.0(@octokit/core@7.0.6)
 
   '@octokit/types@16.0.0':
     dependencies:
