@@ -16,6 +16,7 @@ export const bot = new Chat({
 });
 
 bot.onNewMention(async (thread, message) => {
+  console.log('we out here');
   await thread.post(
     <Card>
       <CardText>Hello, world!</CardText>
