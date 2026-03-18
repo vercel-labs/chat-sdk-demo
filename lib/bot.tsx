@@ -1,5 +1,5 @@
 /** @jsxImportSource chat */
-import { Chat } from "chat";
+import { Actions, Button, Card, CardText, Chat } from "chat";
 import { createSlackAdapter } from "@chat-adapter/slack";
 import { createDiscordAdapter } from "@chat-adapter/discord";
 import { createRedisState } from "@chat-adapter/state-redis";
